@@ -1,13 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import LastThirtyDaysMultipleCompetitions from './LastThirtyDaysMultipleCompetitions';
+import renderer from 'react-test-renderer';
 
 describe('LastThirtyDaysMultipleCompetitions component', () => {
-  test(' 1. Fail to render when no data is passed', async () => {
+  it(' 1. Snapshot testing', () => {
+    const tree = renderer
+      .create(<LastThirtyDaysMultipleCompetitions results={matches} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test(' 2. Fail to render when no data is passed', async () => {
     render(<LastThirtyDaysMultipleCompetitions />);
     const listItemElements = screen.queryByRole('listitem');
     expect(listItemElements).toBeNull();
   });
-  test(' 2. Successfully render listitems when data is passed', async () => {
+  test(' 3. Successfully render listitems when data is passed', async () => {
     render(
       <LastThirtyDaysMultipleCompetitions results={matches} loading={false} />,
     );

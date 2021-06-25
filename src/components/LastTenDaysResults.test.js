@@ -1,27 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import LastTenDaysResults from './LastTenDaysResults';
+import renderer from 'react-test-renderer';
 
 describe('LastTenDaysResults component', () => {
-  // let customizedComponentForTenDays;
-  // let LastTenDaysResults;
+  it(' 1. Snapshot testing', () => {
+    const tree = renderer
+      .create(<LastTenDaysResults results={matches} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-  // beforeAll(() => {
-  //   customizedComponentForTenDays = CustomisableFootballFeed({
-  //           numberOfDays: 10,
-  //       });
-  //   });
-
-  // beforeEach(() => {
-  //   const mockedComponent = jest.fn()
-  //   LastTenDaysResults = customizedComponentForTenDays(mockedComponent);
-  // });
-
-  test(' 1. Fail to render when no data is passed', async () => {
+  test(' 2. Fail to render when no data is passed', async () => {
     render(<LastTenDaysResults />);
     const listItemElements = screen.queryByRole('listitem');
     expect(listItemElements).toBeNull();
   });
-  test(' 2. Successfully render listitems when data is passed', async () => {
+  test(' 3. Successfully render listitems when data is passed', async () => {
     render(<LastTenDaysResults results={matches} loading={false} />);
     const listItemElements = await screen.getAllByRole('listitem');
     expect(listItemElements).toHaveLength(1);

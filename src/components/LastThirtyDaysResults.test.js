@@ -1,13 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import LastThirtyDaysResults from './LastThirtyDaysResults';
+import renderer from 'react-test-renderer';
 
 describe('LastThirtyDaysResults component', () => {
-  test(' 1. Fail to render when no data is passed', async () => {
+  it(' 1. Snapshot testing', () => {
+    const tree = renderer
+      .create(<LastThirtyDaysResults results={matches} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test(' 2. Fail to render when no data is passed', async () => {
     render(<LastThirtyDaysResults />);
     const listItemElements = screen.queryByRole('listitem');
     expect(listItemElements).toBeNull();
   });
-  test(' 2. Successfully render listitems when data is passed', async () => {
+  test(' 3. Successfully render listitems when data is passed', async () => {
     render(<LastThirtyDaysResults results={matches} loading={false} />);
     const listItemElements = await screen.getAllByRole('listitem');
     expect(listItemElements).toHaveLength(1);
