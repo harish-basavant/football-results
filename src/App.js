@@ -1,8 +1,8 @@
-import './App.css'
-import FootBallResults from './components/FootBallResults'
-import LastTenDaysResults from './components/LastTenDaysResults'
-import LastThirtyDaysMultipleCompetitions from './components/LastThirtyDaysMultipleCompetitions'
-import LastThirtyDaysResults from './components/LastThirtyDaysResults'
+import './App.css';
+import FootBallResults from './components/FootBallResults';
+import LastTenDaysResults from './components/LastTenDaysResults';
+import LastThirtyDaysMultipleCompetitions from './components/LastThirtyDaysMultipleCompetitions';
+import LastThirtyDaysResults from './components/LastThirtyDaysResults';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <LastThirtyDaysMultipleCompetitions />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

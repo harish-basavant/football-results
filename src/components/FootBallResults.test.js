@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react'
-import FootBallResults from './FootBallResults'
+import { render, screen } from '@testing-library/react';
+import FootBallResults from './FootBallResults';
 
 describe('FootBallResults component', () => {
   test('renders results if request succeeds', async () => {
-    window.fetch = jest.fn()
+    window.fetch = jest.fn();
     window.fetch.mockResolvedValueOnce({
       json: async () => ({
         count: 61,
@@ -72,13 +72,13 @@ describe('FootBallResults component', () => {
           },
         ],
       }),
-    })
-    render(<FootBallResults />)
+    });
+    render(<FootBallResults />);
     const listItemElements = await screen.findAllByRole(
       'listitem',
       {},
       { timeout: 10000 },
-    )
-    expect(listItemElements).not.toHaveLength(0)
-  })
-})
+    );
+    expect(listItemElements).not.toHaveLength(0);
+  });
+});

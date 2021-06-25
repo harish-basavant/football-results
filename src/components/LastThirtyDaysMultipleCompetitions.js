@@ -1,12 +1,12 @@
-import React from 'react'
-import CustomisableFootballFeed from '../HOC/CustomisableFootballFeed'
-import { getResultTable } from '../utils/utilities'
+import React from 'react';
+import CustomisableFootballFeed from '../HOC/CustomisableFootballFeed';
+import { getResultTable } from '../utils/utilities';
 
 function LastThirtyDaysMultipleCompetitions({ loading, results, error }) {
   if (loading || error) {
-    return loading ? 'Loading...' : error.message
+    return loading ? 'Loading...' : error.message;
   }
-  results = getResultTable(results)
+  results = getResultTable(results);
   return (
     <div className="resultsContainer">
       <h1 className="title">European Championship</h1>
@@ -16,12 +16,12 @@ function LastThirtyDaysMultipleCompetitions({ loading, results, error }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default CustomisableFootballFeed({
   numberOfDays: 30,
   competitions: '2018',
-})(LastThirtyDaysMultipleCompetitions)
+})(LastThirtyDaysMultipleCompetitions);
 
 //competitions.json file attached to pick competitions id

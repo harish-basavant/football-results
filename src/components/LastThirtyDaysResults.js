@@ -1,12 +1,12 @@
-import React from 'react'
-import CustomisableFootballFeed from '../HOC/CustomisableFootballFeed'
-import { getResultTable } from '../utils/utilities'
+import React from 'react';
+import CustomisableFootballFeed from '../HOC/CustomisableFootballFeed';
+import { getResultTable } from '../utils/utilities';
 
 function LastThirtyDaysResults({ loading, results, error }) {
   if (loading || error) {
-    return loading ? 'Loading...' : error.message
+    return loading ? 'Loading...' : error.message;
   }
-  results = getResultTable(results)
+  results = getResultTable(results);
   return (
     <div className="resultsContainer">
       <h1 className="title">Last 30 Days Results</h1>
@@ -16,9 +16,9 @@ function LastThirtyDaysResults({ loading, results, error }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default CustomisableFootballFeed({
   numberOfDays: 30,
-})(LastThirtyDaysResults)
+})(LastThirtyDaysResults);

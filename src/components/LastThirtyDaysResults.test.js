@@ -1,18 +1,18 @@
-import { render, screen } from '@testing-library/react'
-import LastThirtyDaysResults from './LastThirtyDaysResults'
+import { render, screen } from '@testing-library/react';
+import LastThirtyDaysResults from './LastThirtyDaysResults';
 
 describe('LastThirtyDaysResults component', () => {
   test(' 1. Fail to render when no data is passed', async () => {
-    render(<LastThirtyDaysResults />)
-    const listItemElements = screen.queryByRole('listitem')
-    expect(listItemElements).toBeNull()
-  })
+    render(<LastThirtyDaysResults />);
+    const listItemElements = screen.queryByRole('listitem');
+    expect(listItemElements).toBeNull();
+  });
   test(' 2. Successfully render listitems when data is passed', async () => {
-    render(<LastThirtyDaysResults results={matches} loading={false} />)
-    const listItemElements = await screen.getAllByRole('listitem')
-    expect(listItemElements).toHaveLength(1)
-  })
-})
+    render(<LastThirtyDaysResults results={matches} loading={false} />);
+    const listItemElements = await screen.getAllByRole('listitem');
+    expect(listItemElements).toHaveLength(1);
+  });
+});
 
 const matches = [
   {
@@ -72,4 +72,4 @@ const matches = [
     },
     referees: [],
   },
-]
+];

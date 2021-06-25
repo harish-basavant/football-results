@@ -1,20 +1,20 @@
-import { render, screen } from '@testing-library/react'
-import LastThirtyDaysMultipleCompetitions from './LastThirtyDaysMultipleCompetitions'
+import { render, screen } from '@testing-library/react';
+import LastThirtyDaysMultipleCompetitions from './LastThirtyDaysMultipleCompetitions';
 
 describe('LastThirtyDaysMultipleCompetitions component', () => {
   test(' 1. Fail to render when no data is passed', async () => {
-    render(<LastThirtyDaysMultipleCompetitions />)
-    const listItemElements = screen.queryByRole('listitem')
-    expect(listItemElements).toBeNull()
-  })
+    render(<LastThirtyDaysMultipleCompetitions />);
+    const listItemElements = screen.queryByRole('listitem');
+    expect(listItemElements).toBeNull();
+  });
   test(' 2. Successfully render listitems when data is passed', async () => {
     render(
       <LastThirtyDaysMultipleCompetitions results={matches} loading={false} />,
-    )
-    const listItemElements = await screen.getAllByRole('listitem')
-    expect(listItemElements).toHaveLength(1)
-  })
-})
+    );
+    const listItemElements = await screen.getAllByRole('listitem');
+    expect(listItemElements).toHaveLength(1);
+  });
+});
 
 const matches = [
   {
@@ -74,4 +74,4 @@ const matches = [
     },
     referees: [],
   },
-]
+];
